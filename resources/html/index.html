@@ -1,8 +1,79 @@
-<!-- modules: accordion,modals,slider,tabs -->
+<!-- modules: accordion,modals,drawers,tabs,slider -->
 <extends src="layout.html">
     <block name="content">
-        <main class="main">
+        <main class="main container">
+            <h1 class="main-title">Bootstrap modules</h1>
+            <p class="text">Markup only — JS comes from Bootstrap via conditional Vite entries.</p>
 
+            <section>
+                <h2 class="subtitle">Accordion</h2>
+                <div class="accordion" id="demoAccordion">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc1" aria-expanded="true" aria-controls="acc1">
+                                Item one
+                            </button>
+                        </h3>
+                        <div id="acc1" class="accordion-collapse collapse show" data-bs-parent="#demoAccordion">
+                            <div class="accordion-body">Accordion body one.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc2" aria-expanded="false" aria-controls="acc2">
+                                Item two
+                            </button>
+                        </h3>
+                        <div id="acc2" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
+                            <div class="accordion-body">Accordion body two.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="subtitle">Modal</h2>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#demoModal">Open modal</button>
+                <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="demoModalLabel">Modal title</h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">Modal body.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="subtitle">Drawer (offcanvas)</h2>
+                <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#demoDrawer" aria-controls="demoDrawer">Open drawer</button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="demoDrawer" aria-labelledby="demoDrawerLabel">
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title" id="demoDrawerLabel">Drawer</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">Drawer body.</div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="subtitle">Tabs</h2>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-a" data-bs-toggle="tab" data-bs-target="#pane-a" type="button" role="tab" aria-controls="pane-a" aria-selected="true">Tab A</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-b" data-bs-toggle="tab" data-bs-target="#pane-b" type="button" role="tab" aria-controls="pane-b" aria-selected="false">Tab B</button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pane-a" role="tabpanel" aria-labelledby="tab-a" tabindex="0">Pane A</div>
+                    <div class="tab-pane fade" id="pane-b" role="tabpanel" aria-labelledby="tab-b" tabindex="0">Pane B</div>
+                </div>
+            </section>
         </main>
     </block>
 </extends>

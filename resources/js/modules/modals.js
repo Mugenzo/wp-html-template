@@ -1,1 +1,2 @@
-import '../utils/modals.js'
+import '../../sass/modules/modals.scss'
+import 'bootstrap/js/dist/modal'

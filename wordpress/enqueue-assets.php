@@ -26,10 +26,10 @@ if ( ! defined( 'WP_HTML_TEMPLATE_ASSETS_PATH' ) ) {
 }
 
 /**
- * @param string[] $modules accordion|modals|slider|tabs
+ * @param string[] $modules accordion|modals|drawers|tabs|slider
  */
 function wp_html_template_enqueue_assets( array $modules = array() ): void {
-	$allowed = array( 'accordion', 'modals', 'slider', 'tabs' );
+	$allowed = array( 'accordion', 'modals', 'drawers', 'tabs', 'slider' );
 	$modules = array_values( array_intersect( $modules, $allowed ) );
 
 	add_filter( 'script_loader_tag', 'wp_html_template_module_tag', 10, 3 );

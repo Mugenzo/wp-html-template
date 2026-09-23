@@ -5,10 +5,14 @@ const required = [
   'assets/css/style.css',
   'assets/js/accordion.js',
   'assets/css/accordion.css',
+  'assets/js/modals.js',
+  'assets/css/modals.css',
+  'assets/js/drawers.js',
+  'assets/css/drawers.css',
+  'assets/js/tabs.js',
+  'assets/css/tabs.css',
   'assets/js/slider.js',
   'assets/css/slider.css',
-  'assets/js/modals.js',
-  'assets/js/tabs.js',
   'index.html',
   'page-2.html',
 ]
@@ -26,6 +30,10 @@ const page2 = readFileSync('page-2.html', 'utf8')
 
 if (!index.includes('/assets/js/accordion.js')) {
   console.error('index.html should load accordion module')
+  failed = true
+}
+if (!index.includes('/assets/js/drawers.js')) {
+  console.error('index.html should load drawers module')
   failed = true
 }
 if (page2.includes('/assets/js/accordion.js')) {

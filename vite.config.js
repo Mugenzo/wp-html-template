@@ -13,10 +13,10 @@ const layoutsDir = resolve(htmlDir, 'layouts')
 const partialsDir = resolve(htmlDir, 'partials')
 
 /** Known conditional entries (built always; loaded only when requested). */
-export const MODULES = ['accordion', 'modals', 'slider', 'tabs']
+export const MODULES = ['accordion', 'modals', 'drawers', 'tabs', 'slider']
 
 /** Modules that emit a CSS file (skip empty <link> tags for the rest). */
-const MODULES_WITH_CSS = new Set(['accordion', 'slider'])
+const MODULES_WITH_CSS = new Set(['accordion', 'modals', 'drawers', 'tabs', 'slider'])
 
 const entries = {
   app: resolve(root, 'resources/js/app.js'),

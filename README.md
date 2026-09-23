@@ -25,13 +25,15 @@ Global bundle is small (`app` + `style.css`). Features are separate entries — 
 **HTML** — comment at top of the page:
 
 ```html
-<!-- modules: accordion,slider -->
+<!-- modules: accordion,modals,drawers,tabs -->
 <extends src="layout.html">
   <block name="content">…</block>
 </extends>
 ```
 
 Built `index.html` / `page-2.html` get only those `<link>` / `<script type="module">` tags.
+
+UI for accordion / modal / drawer / tabs is **Bootstrap** (data attributes only — no custom JS). Slider stays Swiper.
 
 **WordPress**:
 
@@ -49,15 +51,17 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 ```
 
-| Module | JS | CSS |
-| --- | --- | --- |
-| *(always)* | `js/app.js` | `css/style.css` |
-| `accordion` | `js/accordion.js` | `css/accordion.css` |
-| `slider` | `js/slider.js` | `css/slider.css` (Swiper) |
-| `modals` | `js/modals.js` | — |
-| `tabs` | `js/tabs.js` | — |
+| Module | Source | JS | CSS |
+| --- | --- | --- | --- |
+| *(always)* | site chrome | `js/app.js` | `css/style.css` |
+| `accordion` | Bootstrap Collapse | `js/accordion.js` | `css/accordion.css` |
+| `modals` | Bootstrap Modal | `js/modals.js` | `css/modals.css` |
+| `drawers` | Bootstrap Offcanvas | `js/drawers.js` | `css/drawers.css` |
+| `tabs` | Bootstrap Tab | `js/tabs.js` | `css/tabs.css` |
+| `slider` | Swiper | `js/slider.js` | `css/slider.css` |
 
 Add a module: create `resources/js/modules/foo.js` (+ optional `resources/sass/modules/foo.scss`), register the name in `MODULES` inside `vite.config.js`, and pass `'foo'` from HTML/PHP.
+
 
 ### Browser coverage
 

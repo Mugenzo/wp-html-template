@@ -5,10 +5,14 @@ const required = [
   'assets/css/style.css',
   'assets/js/accordion.js',
   'assets/css/accordion.css',
+  'assets/js/modals.js',
+  'assets/css/modals.css',
+  'assets/js/drawers.js',
+  'assets/css/drawers.css',
+  'assets/js/tabs.js',
+  'assets/css/tabs.css',
   'assets/js/slider.js',
   'assets/css/slider.css',
-  'assets/js/modals.js',
-  'assets/js/tabs.js',
 ]
 
 let failed = false

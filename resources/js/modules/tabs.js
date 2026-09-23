@@ -1,1 +1,2 @@
-import '../utils/tabs.js'
+import '../../sass/modules/tabs.scss'
+import 'bootstrap/js/dist/tab'

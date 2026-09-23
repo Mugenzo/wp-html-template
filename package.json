@@ -13,6 +13,7 @@
     "check": "npm run lint && npm run build:html && node scripts/check-assets.mjs && npm run build:wp && node scripts/check-wp.mjs"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "swiper": "^11.2.6"
   },
   "devDependencies": {
