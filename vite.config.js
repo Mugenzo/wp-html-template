@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
+import fullReload from 'vite-plugin-full-reload'
+import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync } from 'node:fs'
 import { resolve, basename } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import posthtml from 'posthtml'
@@ -90,13 +91,25 @@ function htmlBuilder({ emitHtml }) {
   return {
     name: 'html-builder',
     configureServer(server) {
+      // Stale build:html output at project root fights Vite's own HTML reload rules.
+      for (const name of readdirSync(root)) {
+        if (!name.endsWith('.html')) continue
+        try {
+          unlinkSync(resolve(root, name))
+        } catch {
+          // ignore
+        }
+      }
+
       server.middlewares.use(async (req, res, next) => {
         const url = req.url?.split('?')[0] || ''
         const map = {
           '/': '/index.html',
           '/index.html': '/index.html',
         }
-        const page = map[url] || (url.endsWith('.html') && !url.includes('/') ? url : null)
+        // `/page-2.html` contains a slash — only reject nested paths like `/foo/bar.html`
+        const page =
+          map[url] || (/^\/[^/]+\.html$/.test(url) ? url : null)
         if (!page) return next()
 
         const file = resolve(htmlDir, basename(page))
@@ -106,8 +119,9 @@ function htmlBuilder({ emitHtml }) {
           const source = readFileSync(file, 'utf8')
           const modules = extractModules(source)
           let html = injectModules(await renderHtml(source), modules, { dev: true })
-          html = await server.transformIndexHtml(page, html)
+          html = await server.transformIndexHtml(url === '/' ? '/' : page, html)
           res.setHeader('Content-Type', 'text/html')
+          res.setHeader('Cache-Control', 'no-store')
           res.end(html)
         } catch (err) {
           next(err)
@@ -139,8 +153,12 @@ export default defineConfig(({ mode }) => {
   const isProdBuild = mode === 'html' || mode === 'wp'
 
   return {
+    // We serve HTML ourselves from resources/html (Mix-style layouts/partials).
+    appType: 'custom',
     plugins: [
       htmlBuilder({ emitHtml: mode === 'html' }),
+      // Vite only reloads when changed *.html === open URL; force reload for partials.
+      fullReload(['resources/html/**/*.html'], { delay: 50 }),
       viteStaticCopy({
         targets: [
           { src: 'resources/images/**/*', dest: 'images' },
@@ -188,6 +206,9 @@ export default defineConfig(({ mode }) => {
     server: {
       strictPort: true,
       open: '/',
+      watch: {
+        disableGlobbing: false,
+      },
     },
   }
 })
