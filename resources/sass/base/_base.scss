@@ -1,0 +1,26 @@
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1310px;
+}
+
+.container-md {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1090px;
+}
+
+.container-sm {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 875px;
+}
+
+.header,
+.footer {
+    flex: 0 0 auto;
+}
+
+.main {
+    flex: 1 0 auto;
+}

@@ -1,0 +1,116 @@
+.accordion {
+    margin-top: 35px;
+
+    .accordion-item{
+        padding-bottom: 15px;
+        border-radius: 4px;
+        background-color: #F9F9F9;
+    }
+
+    .accordion-title{
+        padding: 17px 15px 20px 45px;
+        position: relative;
+        cursor: pointer;
+        background-color: #f2f2f2;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 45px;
+        color: #333;
+
+        span {
+            max-width: 40%;
+            color: #AE7C01;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.32px;
+            text-align: right;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            transition: .3s;
+        }
+    }
+
+    .accordion-title.active {
+        svg {
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+
+    .accordion-content{
+        margin-bottom: 5px;
+        height: 0;
+        overflow: hidden;
+        transition: height .5s;
+    }
+
+    .accordion-content-wr{
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 18px 0 18px 15px;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 20px;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 0.4px;
+            color: #333;
+
+            span {
+                color: #AE7C01;
+                text-align: right;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: 0.36px;
+            }
+        }
+    }
+
+    @include breakpoint(small-tablet-portrait) {
+        margin-top: 30px;
+
+        .accordion-item{
+            padding-bottom: 5px;
+        }
+
+        .accordion-title{
+            padding: 10px 10px 10px 29px;
+            font-size: 18px;
+            letter-spacing: 0.36px;
+            gap: 20px;
+
+            span {
+                font-size: 14px;
+                letter-spacing: 0.28px;
+            }
+
+            svg {
+                left: 10px;
+            }
+        }
+
+        .accordion-content-wr{
+            li {
+                padding: 15px 0;
+                font-size: 16px;
+                letter-spacing: 0.32px;
+            }
+        }
+    }
+}

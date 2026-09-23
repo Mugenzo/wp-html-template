@@ -1,0 +1,99 @@
+h1, .main-title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 110%;
+
+    @include breakpoint(extra-small) {
+
+    }
+}
+
+h2, .title {
+    font-weight: 700;
+    font-size: 55px;
+    line-height: normal;
+    letter-spacing: 2.75px;
+    text-align: center;
+    color: #333;
+
+    @include breakpoint(extra-small) {
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
+}
+
+h3, .subtitle {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 29px;
+    color: #333;
+}
+
+h4, .h4 {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 4px;
+    color: #333;
+}
+
+p, a, li, .text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.36px;
+    color: #4F4F4F;
+
+    & + p {
+        margin-top: 10px;
+    }
+
+    span {
+        width: max-content;
+    }
+
+    @include breakpoint(extra-small) {
+        font-size: 16px;
+        letter-spacing: 0.32px;
+    }
+}
+
+.small-text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #535353;
+}
+
+a, .link {
+    display: flex;
+}
+
+.btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #AE7C01;
+    text-align: center;
+    width: fit-content;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+input {
+    margin: 0;
+    background: transparent;
+    border: none;
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
