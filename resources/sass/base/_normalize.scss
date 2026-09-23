@@ -18,22 +18,12 @@ body {
     flex-direction: column;
     margin: 0; /* 1 */
     height: 100%;
-    font-family:
-            'Roboto',
-            system-ui,
-            -apple-system, /* Firefox supports this but not yet `system-ui` */
-            'Segoe UI',
-            Roboto,
-            Helvetica,
-            Arial,
-            sans-serif,
-            'Apple Color Emoji',
-            'Segoe UI Emoji'; /* 2 */
-    font-weight: 400;
-    font-size: 14px;
-    line-height: normal;
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
     color: var(--color-mine-shaft);
-    background-color: #FFFFFF;
+    background-color: var(--color-background);
     overflow-anchor: none;
     -webkit-tap-highlight-color: transparent;
 

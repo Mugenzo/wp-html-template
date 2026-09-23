@@ -1,26 +1,26 @@
 .container {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: var(--container-max);
 }
 
 .container-md {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1090px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: var(--container-max-md);
 }
 
 .container-sm {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 875px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: var(--container-max-sm);
 }
 
 .header,
 .footer {
-    flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 
 .main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
