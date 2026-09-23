@@ -11,6 +11,8 @@ const required = [
   'assets/css/drawers.css',
   'assets/js/tabs.js',
   'assets/css/tabs.css',
+  'assets/js/dropdown.js',
+  'assets/css/dropdown.css',
   'assets/js/slider.js',
   'assets/css/slider.css',
 ]
