@@ -61,6 +61,8 @@ add_action( 'wp_enqueue_scripts', function () {
 | `dropdown` | Bootstrap Dropdown | `js/dropdown.js` | `css/dropdown.css` |
 | `slider` | Swiper | `js/slider.js` | `css/slider.css` |
 
+Project Sass uses `@use` / `@forward`. Bootstrap UI CSS is compiled per module from Bootstrap SCSS (warnings from Bootstrap 5.3 are expected until Bootstrap 6). Swiper uses its shipped CSS entries.
+
 Add a module: create `resources/js/modules/foo.js` (+ optional `resources/sass/modules/foo.scss`), register the name in `MODULES` inside `vite.config.js`, and pass `'foo'` from HTML/PHP.
 
 

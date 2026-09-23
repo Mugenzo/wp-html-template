@@ -1,5 +1,5 @@
-@import "./mixins/index";
-@import "./base/index";
-@import "./partials/index";
-@import "./sections/index";
-@import "./pages/index";
+@use "mixins";
+@use "base";
+@use "partials";
+@use "sections";
+@use "pages";

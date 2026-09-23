@@ -25,5 +25,10 @@ for (const file of required) {
   }
 }
 
+if (existsSync('assets/css/bootstrap.css')) {
+  console.error('unexpected full bootstrap.css — components should be split')
+  failed = true
+}
+
 if (failed) process.exit(1)
 console.log('ok: wp assets')

@@ -1,4 +1,4 @@
-@import 'fonts';
-@import 'breakpoints';
-@import 'hover';
-@import 'visually-hidden';
+@forward "fonts";
+@forward "breakpoints";
+@forward "hover";
+@forward "visually-hidden";

@@ -34,8 +34,12 @@ if (!index.includes('/assets/js/accordion.js')) {
   console.error('index.html should load accordion module')
   failed = true
 }
-if (!index.includes('/assets/js/drawers.js')) {
-  console.error('index.html should load drawers module')
+if (!index.includes('/assets/css/accordion.css')) {
+  console.error('index.html should load accordion.css')
+  failed = true
+}
+if (index.includes('/assets/css/bootstrap.css')) {
+  console.error('index.html should not load full bootstrap.css')
   failed = true
 }
 if (page2.includes('/assets/js/accordion.js')) {
