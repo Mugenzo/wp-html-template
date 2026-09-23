@@ -1,0 +1,17 @@
+.demo-swiper {
+  --swiper-theme-color: var(--color-accent);
+  --swiper-navigation-size: 28px;
+  width: 100%;
+  margin-block: var(--space-stack);
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    background: var(--color-heading);
+    color: var(--color-white);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+  }
+}

@@ -7,7 +7,7 @@
  *   require_once get_template_directory() . '/wordpress/enqueue-assets.php';
  *   add_action( 'wp_enqueue_scripts', function () {
  *       // Global app always loads. Pass only what this request needs:
- *       wp_html_template_enqueue_assets( array( 'accordion', 'slider' ) );
+ *       wp_html_template_enqueue_assets( array( 'accordion', 'slider', 'gallery' ) );
  *   } );
  *
  * Scripts are type="module" (Chrome 61+, Safari 11+, Firefox 60+, all current browsers).
@@ -26,10 +26,10 @@ if ( ! defined( 'WP_HTML_TEMPLATE_ASSETS_PATH' ) ) {
 }
 
 /**
- * @param string[] $modules accordion|modals|drawers|tabs|dropdown|slider
+ * @param string[] $modules accordion|modals|drawers|tabs|dropdown|slider|gallery
  */
 function wp_html_template_enqueue_assets( array $modules = array() ): void {
-	$allowed = array( 'accordion', 'modals', 'drawers', 'tabs', 'dropdown', 'slider' );
+	$allowed = array( 'accordion', 'modals', 'drawers', 'tabs', 'dropdown', 'slider', 'gallery' );
 	$modules = array_values( array_intersect( $modules, $allowed ) );
 
 	add_filter( 'script_loader_tag', 'wp_html_template_module_tag', 10, 3 );

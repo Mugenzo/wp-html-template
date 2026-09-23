@@ -14,7 +14,15 @@ const layoutsDir = resolve(htmlDir, 'layouts')
 const partialsDir = resolve(htmlDir, 'partials')
 
 /** Known conditional entries (built always; loaded only when requested). */
-export const MODULES = ['accordion', 'modals', 'drawers', 'tabs', 'dropdown', 'slider']
+export const MODULES = [
+  'accordion',
+  'modals',
+  'drawers',
+  'tabs',
+  'dropdown',
+  'slider',
+  'gallery',
+]
 
 /** Modules that emit their own CSS file. */
 const MODULES_WITH_CSS = new Set([
@@ -24,6 +32,7 @@ const MODULES_WITH_CSS = new Set([
   'tabs',
   'dropdown',
   'slider',
+  'gallery',
 ])
 
 const entries = {

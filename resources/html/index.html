@@ -1,9 +1,9 @@
-<!-- modules: accordion,modals,drawers,tabs,dropdown,slider -->
+<!-- modules: accordion,modals,drawers,tabs,dropdown,slider,gallery -->
 <extends src="layout.html">
     <block name="content">
         <main class="main container">
-            <h1 class="main-title">Bootstrap modules</h1>
-            <p class="text">Markup only — JS comes from Bootstrap via conditional Vite entries.</p>
+            <h1 class="main-title">Modules demo</h1>
+            <p class="text">Bootstrap UI via data attributes; Swiper and lightGallery as conditional Vite entries.</p>
 
             <section>
                 <h2 class="subtitle">Accordion</h2>
@@ -87,6 +87,35 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Something else</a></li>
                     </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="subtitle">Swiper</h2>
+                <div class="swiper demo-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="subtitle">lightGallery</h2>
+                <div class="demo-gallery" data-gallery>
+                    <a href="https://picsum.photos/id/1015/1200/800">
+                        <img src="https://picsum.photos/id/1015/400/300" alt="Gallery image 1" width="400" height="300" loading="lazy">
+                    </a>
+                    <a href="https://picsum.photos/id/1016/1200/800">
+                        <img src="https://picsum.photos/id/1016/400/300" alt="Gallery image 2" width="400" height="300" loading="lazy">
+                    </a>
+                    <a href="https://picsum.photos/id/1018/1200/800">
+                        <img src="https://picsum.photos/id/1018/400/300" alt="Gallery image 3" width="400" height="300" loading="lazy">
+                    </a>
                 </div>
             </section>
         </main>

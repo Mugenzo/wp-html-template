@@ -33,7 +33,7 @@ Global bundle is small (`app` + `style.css`). Features are separate entries — 
 
 Built `index.html` / `page-2.html` get only those `<link>` / `<script type="module">` tags.
 
-UI for accordion / modal / drawer / tabs / dropdown is **Bootstrap** (data attributes only — no custom JS). Slider stays Swiper.
+UI for accordion / modal / drawer / tabs / dropdown is **Bootstrap** (data attributes only — no custom JS). `slider` is Swiper; `gallery` is lightGallery.
 
 **WordPress**:
 
@@ -42,7 +42,7 @@ require_once get_template_directory() . '/wordpress/enqueue-assets.php';
 add_action( 'wp_enqueue_scripts', function () {
     $modules = array();
     if ( is_front_page() ) {
-        $modules[] = 'slider';
+        $modules = array_merge( $modules, array( 'slider', 'gallery' ) );
     }
     if ( is_page( 'pricing' ) ) {
         $modules = array_merge( $modules, array( 'accordion', 'tabs', 'dropdown' ) );
@@ -60,8 +60,9 @@ add_action( 'wp_enqueue_scripts', function () {
 | `tabs` | Bootstrap Tab | `js/tabs.js` | `css/tabs.css` |
 | `dropdown` | Bootstrap Dropdown | `js/dropdown.js` | `css/dropdown.css` |
 | `slider` | Swiper | `js/slider.js` | `css/slider.css` |
+| `gallery` | lightGallery | `js/gallery.js` | `css/gallery.css` |
 
-Project Sass uses `@use` / `@forward`. Bootstrap UI CSS is compiled per module from Bootstrap SCSS (warnings from Bootstrap 5.3 are expected until Bootstrap 6). Swiper uses its shipped CSS entries.
+Project Sass uses `@use` / `@forward`. Bootstrap UI CSS is compiled per module from Bootstrap SCSS (warnings from Bootstrap 5.3 are expected until Bootstrap 6). Swiper / lightGallery use their shipped CSS entries.
 
 Add a module: create `resources/js/modules/foo.js` (+ optional `resources/sass/modules/foo.scss`), register the name in `MODULES` inside `vite.config.js`, and pass `'foo'` from HTML/PHP.
 

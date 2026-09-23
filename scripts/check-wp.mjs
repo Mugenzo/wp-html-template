@@ -15,6 +15,8 @@ const required = [
   'assets/css/dropdown.css',
   'assets/js/slider.js',
   'assets/css/slider.css',
+  'assets/js/gallery.js',
+  'assets/css/gallery.css',
 ]
 
 let failed = false
